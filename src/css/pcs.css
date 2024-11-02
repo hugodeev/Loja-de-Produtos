@@ -1,0 +1,260 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-color:#ebe6e6;
+    background-image: linear-gradient(left, red, green, blue  );
+    color: rgb(221, 216, 216);
+    font-family: monospace, Times, serif, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.layout-responsivo{
+    background-color:#ebe6e6;
+    width: 1300px;
+    margin: auto;
+}
+
+header{
+    margin-left: 35px;
+}
+
+.menu-superior{
+    width: 100%;
+    background-color:  #0143b6;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0%;
+}
+
+.menu-superior-responsivo{
+    display: flex;
+    margin: auto;
+    width: 1300px;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.titulo-h-imports{
+    margin-left: 37px;
+    color: #c8c8c8;
+}
+
+.menu-cabeçalho{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 8px;
+    margin-right: 70px;
+    font-size: 16px;
+    display: flex;
+    gap: 50px;
+    margin-left: 7px;
+}
+
+.animação-border{
+    color: #c8c8c8;
+    text-decoration: none;
+    list-style: none;
+}
+
+.animação-border:hover{
+    border-bottom: 1px solid #c8c8c8 ;
+    transition: 0.5s ease-in-out;
+    border-radius: 1px;
+}
+
+.titulo-melhores-produtos{
+    margin-top: 100px;
+    font-size: 40px;
+    margin-left: 2px;
+    color: #0860ca;
+}
+
+#caixa-de-buscar{
+    width: 600px;
+    background-color: rgb(188, 188, 201);
+    height: 50px;
+    border-radius: 15px;
+    margin-top: 30px;
+    display: flex;
+}
+
+#input-de-buscar{
+    width: 550px;
+    height: 35px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-top: 7px;
+    font-size: 18px;
+    color: rgb(14, 35, 61);
+    background-color: rgb(188, 188, 201); 
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.icone-lupa{
+    padding: 13px;
+    color: rgb(0, 26, 255);
+}
+
+.menu-main{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 30px;
+    font-size: 21px;
+    display: flex;
+    gap: 38px;
+    margin-left: 7px;
+}
+
+.li-menu{
+    text-decoration: none;
+    color: #0860ca;
+}
+
+/* main caixa de produtos */
+
+.main-caixa-de-produtos-para-telas-de-tablets{
+    display: none;
+}
+
+.main-caixa-de-produtos-para-telas-de-celulares{
+    display: none;
+}
+
+main{
+    margin-bottom: 150px;
+}
+
+.caixa-de-produtos{
+    margin-top: 50px;
+    background-color:#ebe6e6; /* aquiiii*/
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+}
+
+.conteiner{
+    width: 190px;
+    height: 285px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.img-produtos{
+    width: 190px;
+    height: 170px;
+    padding: 1px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.text-conteiner{
+    display: block;
+    margin-top: 10px;
+}
+
+.titulo-tenis-air-force{
+    color: #373737;
+    margin-left: 7px;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-right: 6px;
+}
+
+.paragrafo-tenis-air-force{
+    margin-top: 5px;
+    margin-left: 7px;
+    font-size: 13px;
+    color: #151517;
+}
+
+.preço{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+    color: #03245c;
+}
+
+/* footer painel de menu */
+
+
+.painel-de-menu{
+    background-color:  #0143b6;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    margin-left: 0px;
+    position: fixed;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+}
+
+.icons-menu{  
+    width: 40px;
+    margin: 130px;
+    padding-top: 5px;
+}
+
+/* footer final do site */
+
+.footer-final-do-site{
+    background-color: #0143b6;
+    width: 100%;
+    left: 0%;
+    height: 615px;
+}
+
+.layout-responsivo-final-do-site{
+    width: 1300px;
+    margin: auto;
+    display: flex;
+    gap: 170px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14.7px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.colum-final-do-site{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ul-colum-final-do-site, .a-final-do-site{
+    text-decoration: none;
+    list-style: none;
+    color: rgb(221, 216, 216);
+}
+
+.li-final-do-site{
+    padding-top: 18px;
+}
+
+.layout-para-telas-menores-final-do-site{
+    display: none ;
+}
+
+
+
+
+
+
+
