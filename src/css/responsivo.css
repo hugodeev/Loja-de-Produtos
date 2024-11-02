@@ -119,9 +119,13 @@ display: none;
     display: none;
 }
 
+.menu-superior{
+    height: 50px;
+}
+
 .titulo-h-imports{
     color: #c8c8c8;
-    font-size: 30px;
+    font-size: 23px;
     margin-left: 15px;
     margin-top: 2px;
 }
@@ -132,7 +136,7 @@ header{
 
 .titulo-melhores-produtos{
     margin-top: 80px;
-    font-size: 25px;
+    font-size: 27px;
     margin-left: 2px;
     color: #0860ca;
 }
@@ -140,7 +144,7 @@ header{
 #caixa-de-buscar{
     width: 300px;
     background-color: rgb(188, 188, 201);
-    height: 30px;
+    height: 40px;
     border-radius: 15px;
     margin-top: 20px;
     display: flex;
@@ -148,7 +152,7 @@ header{
 
 #input-de-buscar{
     width: 550px;
-    height: 20px;
+    height: 30px;
     border-radius: 15px;
     padding-left: 20px;
     padding-top: 5px;
@@ -161,14 +165,14 @@ header{
 }
 
 .icone-lupa{
-    padding: 4px;
+    padding: 8px;
     color: rgb(0, 26, 255);
 
 }
 
 .menu-main{
-    font-size: 10px;
-    gap: 23px;
+    font-size: 12px;
+    gap: 18px;
     margin-top: 20px;
 }
 
@@ -207,7 +211,7 @@ header{
 
 .conteiner{
     width: 240px;
-    height: 340px;
+    height: 370px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 5px;
@@ -216,7 +220,7 @@ header{
 
 .img-produtos{
     width: 240px;
-    height: 190px;
+    height: 210px;
     padding: 1px;
     border-radius: 5px 5px 0px 0px;
 }
