@@ -227,7 +227,7 @@ header{
 }
 
 .img-produtos{
-    width: 310px;
+    width: 300px;
     height: 250px;
     padding: 1px;
     border-radius: 5px 5px 0px 0px;
@@ -282,7 +282,7 @@ header{
     background-color: #0143b6;
     width: 100%;
     left: 0%;
-    height: 701px;
+    height: 715px;
 }
 
 .layout-para-telas-menores-final-do-site{
