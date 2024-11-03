@@ -218,17 +218,17 @@ header{
 }
 
 .conteiner{
-    width: 310px;
-    height: 450px;
+    width: 300px;
+    height: 440px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 5px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .img-produtos{
     width: 310px;
-    height: 270px;
+    height: 250px;
     padding: 1px;
     border-radius: 5px 5px 0px 0px;
 }
