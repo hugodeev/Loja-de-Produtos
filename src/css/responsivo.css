@@ -120,7 +120,7 @@ display: none;
     height: 35px;
     margin-top: 0px;
     padding-top: 7px;
-    margin-right: 30px;
+    margin-right: 25px;
 }
     
 .menu-cabeçalho{
@@ -179,7 +179,7 @@ header{
 }
 
 .menu-main{
-    font-size: 18px;
+    font-size: 15.5px;
     gap: 25px;
     margin-top: 20px;
 }
@@ -218,17 +218,17 @@ header{
 }
 
 .conteiner{
-    width: 300px;
+    width: 285px;
     height: 440px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 5px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .img-produtos{
-    width: 300px;
-    height: 250px;
+    width: 285px;
+    height: 235px;
     padding: 1px;
     border-radius: 5px 5px 0px 0px;
 }
@@ -254,8 +254,34 @@ header{
 
 .preço{
     margin-left: 10px;
-    margin-top: 25px;
+    margin-top: 20px;
     font-size: 16px;
+}
+
+.area-favorito-e-compra{
+    display: flex;
+    margin-left: 10px;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.btn-carrinho{
+    height: 27px;
+    border-radius: 5px;
+    padding: 2px;
+    margin-right: 25px;
+}
+
+.btn-de-comprar{
+    color: rgb(232, 223, 212);
+    background-color: #0143b6;
+    width: 80px;
+    height: 35px;
+    font-size: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 2px;
+    margin-left: ato;
 }
 
 
