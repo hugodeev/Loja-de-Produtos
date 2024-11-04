@@ -261,12 +261,12 @@ header{
 .area-favorito-e-compra{
     display: flex;
     margin-left: 10px;
-    margin-top: 15px;
+    margin-top: 16px;
     justify-content: space-between;
 }
 
 .btn-carrinho{
-    height: 27px;
+    height: 29px;
     border-radius: 5px;
     padding: 2px;
     margin-right: 25px;
@@ -274,16 +274,18 @@ header{
 
 .btn-de-comprar{
     color: rgb(232, 223, 212);
-    background-color: #0143b6;
-    width: 80px;
+    background-color: #0f9b08;
+    width: 90px;
     height: 35px;
-    font-size: 10px;
+    font-size: 11px;
     border-radius: 5px;
     border: none;
     padding: 2px;
-    margin-left: ato;
 }
 
+.btn-de-comprar:focus{
+    background-color: #bdbdbd;
+}
 
 /* footer painel de menu */
 
