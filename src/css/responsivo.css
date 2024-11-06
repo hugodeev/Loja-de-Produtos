@@ -143,7 +143,7 @@ header{
 }
 
 .titulo-melhores-produtos{
-    margin-top: 80px;
+    margin-top: 65px;
     font-size: 27px;
     margin-left: 2px;
     color: #0860ca;
@@ -219,7 +219,7 @@ header{
 
 .conteiner{
     width: 285px;
-    height: 440px;
+    height: 450px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 5px;
@@ -260,27 +260,29 @@ header{
 
 .area-favorito-e-compra{
     display: flex;
-    margin-left: 10px;
-    margin-top: 16px;
     justify-content: space-between;
 }
 
 .btn-carrinho{
-    height: 29px;
+    height: 27px;
     border-radius: 5px;
     padding: 2px;
     margin-right: 25px;
 }
 
 .btn-de-comprar{
-    color: rgb(232, 223, 212);
+    color: rgb(233, 232, 230);
     background-color: #0f9b08;
     width: 90px;
-    height: 35px;
-    font-size: 11px;
+    height: 37px;
+    font-size: 11.5px;
     border-radius: 5px;
     border: none;
     padding: 2px;
+    margin-right: 25px;
+    margin-left: auto;
+    margin-top: 16px;
+    display: flex;
 }
 
 .btn-de-comprar:focus{
