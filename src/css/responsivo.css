@@ -309,8 +309,8 @@ header{
 
 .conteiner-formulario{
     background-color: rgb(255, 255, 255);
-    height: 550px;
-    width: 330px;
+    height: 630px;
+    width: 340px;
     border-radius: 10px;
     display: block;
 }
@@ -318,35 +318,34 @@ header{
 .titulo-formulario-border{
     background-color: #0860ca;
     border-radius: 10px 10px 0px 0px;
-    height: 40px;
+    height: 43px;
 }
 
 .btn-voltar-e-titulo-formulario{
-    display: flex;
-    
+    display: flex;  
 }
 
 .img-btn-voltar-formulario{
     width: 20px;
-    background-color: #0143b6;
+    background-color: #0860ca;
     border-radius: 5px;
 }
 
 .caixa-btn-voltar-formulario{ 
-    margin-left: 10px;
+    margin-left: 4px;
     margin-top: 11.5px;
     width: 24px;
     height: 21px;
     border: none;
-    background-color: #0143b6;
+    background-color: #0860ca;
     border-radius: 3px;
 }
 
 .titulo-formulario{
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-top: 10px;
-    margin-left: 15px;
+    margin-left: 35px;
 }
 
 .inputs-do-formulario{
@@ -362,8 +361,8 @@ header{
 
 .caixa-de-inputs{
     margin-top: 10px;
-    width: 270px;
-    height: 27px;
+    width: 285px;
+    height: 35px;
     padding-left: 7px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.199);
@@ -376,8 +375,8 @@ header{
 
 .caixa-de-inputs-rua{
     margin-top: 10px;
-    width: 208px;
-    height: 27px;
+    width: 210px;
+    height: 35px;
     padding-left: 7px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.199);
@@ -385,11 +384,12 @@ header{
 
 .caixa-de-inputs-numero-casa{
     margin-top: 10px;
-    width: 50px;
-    height: 27px;
-    padding-left: 5px;
+    width: 60px;
+    height: 35px;
+    padding-right: 7px;
     margin-left: 5px;
-    font-size: 10px;
+    text-align: center;
+    font-size: 12px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.199);
 }
@@ -399,22 +399,15 @@ header{
 .checkbox-formulario{
    display: flex;
    background-color: #ffffff; 
-   width: 277px;
-   height: 30px;
+   width: 291px;
+   height: 35px;
    margin-top: 25px;
    border: 1px solid rgba(0, 0, 0, 0.199);
    border-radius: 5px;
 }
-
-.pix-img{
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-}
-
 .pix-titulo{
     color: #535353;
-    padding: 5px;
+    padding: 7px;
 }
 
 .pix-checkbox{
@@ -424,23 +417,23 @@ header{
 }
 
 .chave-pix-formulario{
-    font-size: 8px;
+    font-size: 9px;
     color: #535353;
-    padding: 5px;
+    padding: 6px;
     text-align: center;
     background-color: #ffffff; 
-    width: 267px;
-    height: 10px;
+    width: 277px;
+    height: 20px;
     margin-top: 18px;
     border: 1px solid rgba(0, 0, 0, 0.199);
     border-radius: 5px;
 }
 
 .btn-formulario{
-    width: 267px;
+    width: 287px;
     height: 35px;
     margin-left: 6px;
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: #0f9b08;
     color: #ebe9e9;
     border-radius: 5px;
@@ -450,6 +443,13 @@ header{
 .btn-formulario:hover{
     cursor: pointer;
     background-color: #62c05d;
+}
+
+.valor-total-painel-endereço{
+    color: #2c5275;
+    font-size: 12px;
+    margin-left: 150px;
+    margin-top: 15px;
 }
 
 /* Painel carrossel */
@@ -470,10 +470,11 @@ header{
     justify-content: center;
     align-items: center;
 }
+
 .carrossel {
     position: relative;
-    width: 380px;
-    height: 370px;
+    width: 350px;
+    height: 350px;
     max-width: 600px;
     margin: auto;
     overflow: hidden;
