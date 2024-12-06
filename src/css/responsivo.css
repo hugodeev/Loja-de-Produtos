@@ -326,13 +326,13 @@ header{
 }
 
 .img-btn-voltar-formulario{
-    width: 20px;
+    width: 25px;
     background-color: #0860ca;
     border-radius: 5px;
 }
 
 .caixa-btn-voltar-formulario{ 
-    margin-left: 4px;
+    margin-left: 6px;
     margin-top: 11.5px;
     width: 24px;
     height: 21px;
@@ -345,7 +345,7 @@ header{
     font-size: 18px;
     text-align: center;
     padding-top: 10px;
-    margin-left: 35px;
+    margin-left: 30px;
 }
 
 .inputs-do-formulario{
@@ -399,12 +399,19 @@ header{
 .checkbox-formulario{
    display: flex;
    background-color: #ffffff; 
-   width: 291px;
+   width: 292px;
    height: 35px;
    margin-top: 25px;
    border: 1px solid rgba(0, 0, 0, 0.199);
    border-radius: 5px;
 }
+
+.pix-img{
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
 .pix-titulo{
     color: #535353;
     padding: 7px;
@@ -447,9 +454,9 @@ header{
 
 .valor-total-painel-endereço{
     color: #2c5275;
-    font-size: 12px;
-    margin-left: 150px;
-    margin-top: 15px;
+    font-size: 11px;
+    margin-left: 160px;
+    margin-top: 20px;
 }
 
 /* Painel carrossel */
