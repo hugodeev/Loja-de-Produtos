@@ -92,7 +92,7 @@
                                              <h3 class="preço">R$ 131,47</h3>
                                          </div>
                                     </div>
-                                </a><a href=""></a>
+                                </a>
             
                                 <a href="">
                                     <div class="conteiner">
@@ -785,11 +785,114 @@
 
             <div class="caixa-de-produtos">
                              
-                    <div  class="main-colum-caixa-de-produtos-para-telas-de-celulares">
+                    <div  class="main-colum-caixa-de-produtos-para-telas-de-celulares">      
                         
-                        <a href="">
 
-                            <div class="conteiner">
+                        <nav class="naver-carrossel">
+
+                            <div class="carrossel">
+
+                                <div class="carrossel-images">
+
+                                    <img src="src/image/imgs-produtos/tenis air force.jpg" alt="Imagem 1" class="carrossel-image">
+
+                                    <img src="src/image/imgs-produtos/fone-sem-fio.webp" alt="Imagem 2" class="carrossel-image">
+
+                                    <img src="src/image/imgs-produtos/relogio-smartwaltch.webp" alt="Imagem 3" class="carrossel-image">
+
+                                </div>
+                            
+                                <!-- Setas de navegação -->
+                                <button class="carrossel-nav left" id="prevBtn">&#10094;</button>
+                                <button class="carrossel-nav right" id="nextBtn">&#10095;</button>
+                                
+                            </div>
+                        </nav>
+
+                        <form id="painelEndereco" style="display: none;">
+
+                            <div class="conteiner-formulario">
+
+                                <div class="titulo-formulario-border">
+                                    
+                                    <div class="btn-voltar-e-titulo-formulario">
+
+                                        <button type="button" id="btnFecharPainel" class="caixa-btn-voltar-formulario">
+                                            <img src="src/image/icons-navegações/img-voltar.png" alt="botão voltar" class="img-btn-voltar-formulario" >
+                                        </button>
+
+                                        <h1 class="titulo-formulario">Preencha seu endereço:</h1>
+                                           
+                                    </div>
+
+                                       <div class="inputs-do-formulario">
+
+                                            <!-- Inputs de informações -->
+                                            <p class="conteiner-inputs">
+                                                <input type="text" name="nomecompleto" id="nomecompleto" placeholder="Nome Completo" class="caixa-de-inputs">
+                                            </p>
+
+                                            <p class="conteiner-inputs">
+                                                <input type="number" name="telefone" id="telefone" placeholder="Telefone" class="caixa-de-inputs">
+                                            </p>
+
+                                            <p class="conteiner-inputs">
+                                                <input type="text" name="cidade" id="cidade" placeholder="Cidade" class="caixa-de-inputs">
+                                            </p>
+
+                                            <p class="conteiner-inputs">
+                                                <input type="text" name="bairro" id="bairro" placeholder="Bairro" class="caixa-de-inputs">
+                                            </p>
+
+                                            <div class="display-rua-numero-da-casa">
+
+                                                <p class="conteiner-inputs">
+                                                    <input type="text" name="rua" id="rua" placeholder="Rua" class="caixa-de-inputs-rua">
+                                                </p>
+
+                                                <p class="conteiner-inputs">
+                                                    <input type="number" name="numerocasa" id="numerocasa" placeholder="Número" class="caixa-de-inputs-numero-casa">
+                                                </p>
+
+                                            </div>
+
+                                            <p class="conteiner-inputs">
+                                                <input type="text" name="complemento" id="complemento" placeholder="Complemento" class="caixa-de-inputs">
+                                            </p>
+
+                                            <!-- Pagamento Pix -->
+                                            <p>
+                                                <div class="checkbox-formulario">
+
+                                                    <img src="src/image/img-forma-pagamento/pix-logo.png" alt="pix logo" class="pix-img">
+
+                                                    <h3 class="pix-titulo">Pix</h3>
+
+                                                    <input type="checkbox" name="formaPagamento" class="pix-checkbox" id="pixRadio">
+
+                                                </div>
+                                            </p>
+
+                                            <div id="chavePixContainer" style="display: none;">
+
+                                                <div class="chave-pix-formulario">
+
+                                                    <h3>Chave Pix: 58b785b2-5a18-467a-af52-ad20ed81a22a</h3>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Botão de finalizar -->
+                                            <p>
+                                                <input type="button" value="Finalizar Compra" class="btn-formulario">
+                                            </p>
+                                       </div>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="conteiner">
 
                                 <img src="src/image/imgs-produtos/tenis air force.jpg" class="img-produtos" alt="air force">
 
@@ -807,15 +910,14 @@
 
                                          <div class="area-favorito-e-compra">
                                              <h3 class="preço">R$ 80,35</h3>
-                                             <input type="button" value="Compre Agora" class="btn-de-comprar">
+                                             <button class="btn-de-comprar"  id="btnCompreAgora">Compre Agora</button>
                                          </div>
 
                                 </div>
 
-                                </div>
+                        </div>
 
-                        </a>
-
+                   
                         <a href="">
 
                             <div class="conteiner">
@@ -1503,5 +1605,6 @@
 
      </div>
 
+     <script src="src/js/script.js"></script>
 </body>
 </html>

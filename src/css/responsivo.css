@@ -271,14 +271,15 @@ header{
 }
 
 .btn-de-comprar{
-    color: rgb(233, 232, 230);
+    color: rgb(239, 239, 239);
     background-color: #0f9b08;
     width: 90px;
     height: 37px;
     font-size: 11.5px;
     border-radius: 5px;
     border: none;
-    padding: 2px;
+    padding-top: 12px;
+    padding-left: 8px;
     margin-right: 25px;
     margin-left: auto;
     margin-top: 22px;
@@ -288,6 +289,233 @@ header{
 .btn-de-comprar:focus{
     background-color: #bdbdbd;
 }
+
+/* conteineir de endereço */
+
+#painelEndereco {
+    display: none; 
+    position: fixed; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteiner-formulario{
+    background-color: rgb(255, 255, 255);
+    height: 550px;
+    width: 330px;
+    border-radius: 10px;
+    display: block;
+}
+
+.titulo-formulario-border{
+    background-color: #0860ca;
+    border-radius: 10px 10px 0px 0px;
+    height: 40px;
+}
+
+.btn-voltar-e-titulo-formulario{
+    display: flex;
+    
+}
+
+.img-btn-voltar-formulario{
+    width: 20px;
+    background-color: #0143b6;
+    border-radius: 5px;
+}
+
+.caixa-btn-voltar-formulario{ 
+    margin-left: 10px;
+    margin-top: 11.5px;
+    width: 24px;
+    height: 21px;
+    border: none;
+    background-color: #0143b6;
+    border-radius: 3px;
+}
+
+.titulo-formulario{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+.inputs-do-formulario{
+    margin-top: 0px;
+    margin-left: 21px ;
+    font-size: 13px;
+    color: #2b5b95;
+}
+
+.conteiner-inputs{
+    margin-top: 16px;       
+}
+
+.caixa-de-inputs{
+    margin-top: 10px;
+    width: 270px;
+    height: 27px;
+    padding-left: 7px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+.display-rua-numero-da-casa{
+    display: flex;
+    margin-top: 1px;
+}
+
+.caixa-de-inputs-rua{
+    margin-top: 10px;
+    width: 208px;
+    height: 27px;
+    padding-left: 7px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+.caixa-de-inputs-numero-casa{
+    margin-top: 10px;
+    width: 50px;
+    height: 27px;
+    padding-left: 5px;
+    margin-left: 5px;
+    font-size: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+}
+
+/*checkboox-formulario*/
+
+.checkbox-formulario{
+   display: flex;
+   background-color: #ffffff; 
+   width: 277px;
+   height: 30px;
+   margin-top: 25px;
+   border: 1px solid rgba(0, 0, 0, 0.199);
+   border-radius: 5px;
+}
+
+.pix-img{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+}
+
+.pix-titulo{
+    color: #535353;
+    padding: 5px;
+}
+
+.pix-checkbox{
+    margin-left: auto;
+    margin-right: 8px;
+    width: 17px;
+}
+
+.chave-pix-formulario{
+    font-size: 8px;
+    color: #535353;
+    padding: 5px;
+    text-align: center;
+    background-color: #ffffff; 
+    width: 267px;
+    height: 10px;
+    margin-top: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.199);
+    border-radius: 5px;
+}
+
+.btn-formulario{
+    width: 267px;
+    height: 35px;
+    margin-left: 6px;
+    margin-top: 30px;
+    background-color: #0f9b08;
+    color: #ebe9e9;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-formulario:hover{
+    cursor: pointer;
+    background-color: #62c05d;
+}
+
+/* Painel carrossel */
+
+.naver-carrossel{
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: none; 
+    position: fixed; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+.carrossel {
+    position: relative;
+    width: 380px;
+    height: 370px;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carrossel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrossel-image {
+    width: 100%;
+    object-fit: cover;
+    height: 420px;
+}
+
+.carrossel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0860ca;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.left {
+    left: 5px;
+}
+
+.right {
+    right: 5px;
+}
+
+.carrossel-nav:hover {
+    background-color: #3c88e6;
+}
+
+
 
 /* footer painel de menu */
 
