@@ -109,6 +109,10 @@ display: none;
 
 @media screen and (max-width: 600px){
 
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
 .layout-responsivo{
         background-color:#ebe6e6;
         width: 100%;
@@ -243,6 +247,7 @@ header{
     margin-left: 7px;
     font-size: 17px;
     padding-right: 6px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .paragrafo-tenis-air-force{
@@ -250,12 +255,14 @@ header{
     margin-left: 7px;
     font-size: 14px;
     color: #151517;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .preço{
     margin-left: 10px;
     margin-top: 30px;
     font-size: 16px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .area-favorito-e-compra{
@@ -273,13 +280,13 @@ header{
 .btn-de-comprar{
     color: rgb(239, 239, 239);
     background-color: #0f9b08;
-    width: 90px;
-    height: 37px;
-    font-size: 11.5px;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
     border-radius: 5px;
     border: none;
     padding-top: 12px;
-    padding-left: 8px;
+    padding-left: 10.5px;
     margin-right: 25px;
     margin-left: auto;
     margin-top: 22px;
@@ -292,7 +299,7 @@ header{
 
 /* conteineir de endereço */
 
-#painelEndereco {
+#painelEndereco1, #painelEndereco2, #painelEndereco3, #painelEndereco4, #painelEndereco5, #painelEndereco6, #painelEndereco7, #painelEndereco8, #painelEndereco9, #painelEndereco10, #painelEndereco11, #painelEndereco12, #painelEndereco13, #painelEndereco14, #painelEndereco15, #painelEndereco16, #painelEndereco17, #painelEndereco18, #painelEndereco19, #painelEndereco20, #painelEndereco21, #painelEndereco23, #painelEndereco24, #painelEndereco25, #painelEndereco26, #painelEndereco27, #painelEndereco28, #painelEndereco29, #painelEndereco30 {
     display: none; 
     position: fixed; 
     top: 50%;
@@ -333,7 +340,7 @@ header{
 
 .caixa-btn-voltar-formulario{ 
     margin-left: 6px;
-    margin-top: 11.5px;
+    margin-top: 9px;
     width: 24px;
     height: 21px;
     border: none;
@@ -345,7 +352,8 @@ header{
     font-size: 18px;
     text-align: center;
     padding-top: 10px;
-    margin-left: 30px;
+    margin-left: 23px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .inputs-do-formulario{
@@ -404,6 +412,7 @@ header{
    margin-top: 25px;
    border: 1px solid rgba(0, 0, 0, 0.199);
    border-radius: 5px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .pix-img{
@@ -445,6 +454,7 @@ header{
     color: #ebe9e9;
     border-radius: 5px;
     border: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 .btn-formulario:hover{
@@ -455,8 +465,9 @@ header{
 .valor-total-painel-endereço{
     color: #2c5275;
     font-size: 11px;
-    margin-left: 160px;
+    margin-left: 150px;
     margin-top: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 /* Painel carrossel */
@@ -522,7 +533,6 @@ header{
 .carrossel-nav:hover {
     background-color: #3c88e6;
 }
-
 
 
 /* footer painel de menu */
