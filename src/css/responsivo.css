@@ -299,7 +299,7 @@ header{
 
 /* conteineir de endereço */
 
-#painelEndereco1, #painelEndereco2, #painelEndereco3, #painelEndereco4, #painelEndereco5, #painelEndereco6, #painelEndereco7, #painelEndereco8, #painelEndereco9, #painelEndereco10, #painelEndereco11, #painelEndereco12, #painelEndereco13, #painelEndereco14, #painelEndereco15, #painelEndereco16, #painelEndereco17, #painelEndereco18, #painelEndereco19, #painelEndereco20, #painelEndereco21, #painelEndereco23, #painelEndereco24, #painelEndereco25, #painelEndereco26, #painelEndereco27, #painelEndereco28, #painelEndereco29, #painelEndereco30 {
+#painelEndereco1,  #painelEndereco2,  #painelEndereco3, #painelEndereco4,  #painelEndereco5,  #painelEndereco6, #painelEndereco7,  #painelEndereco8,  #painelEndereco9, #painelEndereco10, #painelEndereco11, #painelEndereco12, #painelEndereco13, #painelEndereco14, #painelEndereco15, #painelEndereco16, #painelEndereco17, #painelEndereco18, #painelEndereco19, #painelEndereco20, #painelEndereco21,#painelEndereco22, #painelEndereco23, #painelEndereco24, #painelEndereco25, #painelEndereco26, #painelEndereco27, #painelEndereco28, #painelEndereco29, #painelEndereco30 {
     display: none; 
     position: fixed; 
     top: 50%;
@@ -465,7 +465,7 @@ header{
 .valor-total-painel-endereço{
     color: #2c5275;
     font-size: 11px;
-    margin-left: 150px;
+    margin-left: 130px;
     margin-top: 20px;
     font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }

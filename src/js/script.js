@@ -21,37 +21,123 @@ document.addEventListener("DOMContentLoaded", function () {
         "src/image/imgs-produtos/relogio-analogico.webp", 
         "src/image/imgs-produtos/relogio-smartwaltch.webp", 
         "src/image/imgs-produtos/retro-gamer.webp", 
-        /* falta 10 embaixo */
         "src/image/imgs-produtos/slide-nuven.webp", 
-        "src/image/imgs-produtos/videogamer.webp", 
-        "src/image/imgs-produtos/bike.jpg", 
-        "src/image/imgs-produtos/geladeira.jpg", 
-        "src/image/imgs-produtos/bola de vôlei.jpg", 
-        "src/image/imgs-produtos/camiseta.jpg", 
-        "src/image/imgs-produtos/relógio.jpg", 
-        "src/image/imgs-produtos/bike.jpg", 
-        "src/image/imgs-produtos/geladeira.jpg", 
-        "src/image/imgs-produtos/bola de vôlei.jpg", 
-        "src/image/imgs-produtos/camiseta.jpg", 
-        "src/image/imgs-produtos/relógio.jpg", 
-        // Adicione mais imagens conforme necessário
+        "src/image/imgs-produtos/videogamer.webp",
+        "src/image/imgs-produtos/oculos-sol.webp",
+        "src/image/imgs-produtos/kit-masc.webp",
+        "src/image/imgs-produtos/headset.webp",
+        "src/image/imgs-produtos/kit-facas.webp",
+        "src/image/imgs-produtos/carteira-ultrafina.webp",
+        "src/image/imgs-produtos/cintolargo.webp",
+        "src/image/imgs-produtos/Lanternaportatil.webp",
+        "src/image/imgs-produtos/cinta-de-correçao.webp",
+        "src/image/imgs-produtos/minimassageador.webp",
+        "src/image/imgs-produtos/braco-articulado.webp"
     ];
 
     const titulosProdutos = [
-        "bike | moderna",
-    ]
+        "Bike | Moderna",
+        "Geladeira",
+        "Bola de Vôlei",
+        "Câmera de Segurança",
+        "Tênis Air Force",
+        "Par de Meias",
+        "Camisa Preta",
+        "Camisa Azul",
+        "Fita de LED",
+        "Fone Sem Fio",
+        "Joelheira",
+        "Maquininha de Barba",
+        "Meias Longas",
+        "Parafusadeira",
+        "Piscina Inflável",
+        "Relógio Analógico",
+        "Smartwatch",
+        "Retro Gamer",
+        "Slide Nuvem",
+        "Videogame",
+        "Oculos de Sol",
+        "Kit Masculino",
+        "Headset Clásssico",
+        "Kit de Facas",
+        "Carteira Ultrafina",
+        "Cinto Largo",
+        "Lanterna Portátil",
+        "Cinta de Correção",
+        "Mini Massagiador",
+        "Braço Articulado",
+    ];
 
     const paragrafosProdutos = [
-        "para usos de exercicios fisicos",
-    ]
+        "Para usos de exercícios físicos",
+        "Armazenamento eficiente para sua casa",
+        "Perfeita para suas partidas",
+        "Segurança em primeiro lugar",
+        "Conforto e estilo garantidos",
+        "Pacote com 12 pares",
+        "Design elegante e confortável",
+        "Versátil e moderna",
+        "Ilumine seu ambiente",
+        "Som de alta qualidade",
+        "Proteção para seus joelhos",
+        "Raspe com precisão",
+        "Estilo e conforto",
+        "Facilite suas tarefas",
+        "Diversão garantida",
+        "Clássico e funcional",
+        "Tecnologia no seu pulso",
+        "Jogos retrô incríveis",
+        "Conforto para seus pés",
+        "Experiência de alta performance",
+        "Proteja seus olhos da luz solar",
+        "Estilo de melhor forma 3 em 1",
+        "Alta qualidade para seus ouvidos",
+        "Corte rápido para sua sua vida ",
+        "Leve seu dinheiro para qualquer lugar com nossa carteira",
+        "Segure suas calças para não passar vergonha",
+        "Deixe seu mundo mais claro",
+        "Saia do formato C, para letra I",
+        "Vibre sua Vida",
+        "Controle seu Ângulo"
+    ];
 
-    // Gerar os 30 formulários com IDs diferentes
-    for (let i = 1; i <= 30; i++) {
+    const precoProdutos = [
+        "2.667,99",
+        "3.199,99",
+        "89,90",
+        "299,99",
+        "459,90",
+        "79,99",
+        "59,90",
+        "69,90",
+        "129,99",
+        "199,99",
+        "49,90",
+        "149,90",
+        "39,90",
+        "399,99",
+        "199,90",
+        "99,99",
+        "599,99",
+        "349,99",
+        "99,90",
+        "4.499,99",
+        "39,99",
+        "79,65",
+        "64,99",
+        "29,99",
+        "19,99",
+        "49,99",
+        "67,90",
+        "24,90",
+        "34,99",
+        "89,90"
+    ];
+
+    // Gerar os 20 formulários com IDs diferentes
+    for (let i = 0; i < 30; i++) {
         const formDiv = document.createElement("div");
 
-        // Se o número de imagens for menor que 30, as imagens vão se repetir
-        const imagemProduto = imagensProdutos[(i - 1) % imagensProdutos.length];
-        
         formDiv.innerHTML = `
             <form id="painelEndereco${i}" style="display: none;">
                 <div class="conteiner-formulario">
@@ -99,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                             <div class="valor-total-painel-endereço">
-                                <h3>Valor total: 80,45</h3>
+                                <h3>Valor total: R$ ${precoProdutos[i]}</h3>
                             </div>
                             <p>
                                 <input type="button" value="Finalizar Compra" class="btn-formulario" id="btnFinalizarCompra${i}">
@@ -110,15 +196,15 @@ document.addEventListener("DOMContentLoaded", function () {
             </form>
             
             <div class="conteiner">
-                <img src="${imagemProduto}" class="img-produtos" alt="Produto ${i}">
+                <img src="${imagensProdutos[i]}" class="img-produtos" alt="Produto ${i + 1}">
                 <div class="text-conteiner">
                     <div class="area-favorito-e-compra">
-                        <h3 class="titulo-tenis-air-force">${titulosProdutos}</h3>
+                        <h3 class="titulo-tenis-air-force">${titulosProdutos[i]}</h3>
                         <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho">
                     </div>
-                    <p class="paragrafo-tenis-air-force">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="paragrafo-tenis-air-force">${paragrafosProdutos[i]}</p>
                     <div class="area-favorito-e-compra">
-                        <h3 class="preço">R$ 80,35</h3>
+                        <h3 class="preço">R$ ${precoProdutos[i]}</h3>
                         <button class="btn-de-comprar" id="btnCompreAgora${i}">Compre Agora</button>
                     </div>
                 </div>
@@ -131,11 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const pixCheckbox = document.getElementById(`pixRadio${i}`);
         const chavePixContainer = document.getElementById(`chavePixContainer${i}`);
         pixCheckbox.addEventListener('change', () => {
-            if (pixCheckbox.checked) {
-                chavePixContainer.style.display = 'block';
-            } else {
-                chavePixContainer.style.display = 'none';
-            }
+            chavePixContainer.style.display = pixCheckbox.checked ? 'block' : 'none';
         });
 
         // Referências para abrir e fechar o painel de endereço
