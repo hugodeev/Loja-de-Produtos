@@ -135,35 +135,125 @@ document.addEventListener("DOMContentLoaded", function () {
         "89,90"
     ];
 
-    const produtos = titulosProdutos.map((titulo, index) => ({
+    const produtos = titulosProdutos.map((titulo, index) => ({ 
         titulo,
         imagem: imagensProdutos[index],
         descricao: paragrafosProdutos[index],
         preco: precoProdutos[index],
     }));
-
+    
     const renderProdutos = (produtosFiltrados) => {
         container.innerHTML = ""; // Limpa os produtos existentes
-        produtosFiltrados.forEach(produto => {
+    
+        produtosFiltrados.forEach((produto, index) => {
             const divProduto = document.createElement("div");
             divProduto.classList.add("conteiner");
-
+    
+            // Renderiza o produto
             divProduto.innerHTML = `
                 <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
                 <div class="text-conteiner">
-                    <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
-                    <p>${produto.descricao}</p>
-                    <h3 class="preço">R$ ${produto.preco}</h3>
-                    <button class="btn-de-comprar">Compre Agora</button>
+                   <div class="area-favorito-e-compra">
+                       <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
+                       <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho">
+                   </div>
+                        <p class="paragrafo-tenis-air-force">${produto.descricao}</p>
+                        <div class="area-favorito-e-compra">
+                            <h3 class="preço">R$ ${produto.preco}</h3>
+                            <button class="btn-de-comprar" id="btnCompreAgora${index}">Compre Agora</button>
+                    </div>
                 </div>
             `;
-
+    
             container.appendChild(divProduto);
+    
+            // Criar e renderizar o formulário de endereço
+            const formDiv = document.createElement("div");
+            formDiv.innerHTML = `
+                <form id="painelEndereco${index}" style="display: none;">
+                    <div class="conteiner-formulario">
+                        <div class="titulo-formulario-border">
+                            <div class="btn-voltar-e-titulo-formulario">
+                                <button type="button" id="btnFecharPainel${index}" class="caixa-btn-voltar-formulario">
+                                    <img src="src/image/icons-navegações/img-voltar.png" alt="botão voltar" class="img-btn-voltar-formulario">
+                                </button>
+                                <h1 class="titulo-formulario">Preencha seu endereço:</h1>
+                            </div>
+                            <div class="inputs-do-formulario">
+                                <p class="conteiner-inputs">
+                                    <input type="text" name="nomecompleto" id="nomecompleto${index}" placeholder="Nome Completo" class="caixa-de-inputs">
+                                </p>
+                                <p class="conteiner-inputs">
+                                    <input type="number" name="telefone" id="telefone${index}" placeholder="Telefone" class="caixa-de-inputs">
+                                </p>
+                                <p class="conteiner-inputs">
+                                    <input type="text" name="cidade" id="cidade${index}" placeholder="Cidade" class="caixa-de-inputs">
+                                </p>
+                                <p class="conteiner-inputs">
+                                    <input type="text" name="bairro" id="bairro${index}" placeholder="Bairro" class="caixa-de-inputs">
+                                </p>
+                                <div class="display-rua-numero-da-casa">
+                                    <p class="conteiner-inputs">
+                                        <input type="text" name="rua" id="rua${index}" placeholder="Rua" class="caixa-de-inputs-rua">
+                                    </p>
+                                    <p class="conteiner-inputs">
+                                        <input type="number" name="numerocasa" id="numerocasa${index}" placeholder="Número" class="caixa-de-inputs-numero-casa">
+                                    </p>
+                                </div>
+                                <p class="conteiner-inputs">
+                                    <input type="text" name="complemento" id="complemento${index}" placeholder="Complemento" class="caixa-de-inputs">
+                                </p>
+                                <p>
+                                    <div class="checkbox-formulario">
+                                        <img src="src/image/img-forma-pagamento/pix-logo.png" alt="pix logo" class="pix-img">
+                                        <h3 class="pix-titulo">Pix</h3>
+                                        <input type="checkbox" name="formaPagamento" class="pix-checkbox" id="pixRadio${index}">
+                                    </div>
+                                </p>
+                                <div id="chavePixContainer${index}" style="display: none;">
+                                    <div class="chave-pix-formulario">
+                                        <h3>Chave Pix: 58b785b2-5a18-467a-af52-ad20ed81a22a</h3>
+                                    </div>
+                                </div>
+                                <div class="valor-total-painel-endereço">
+                                    <h3>Valor total: R$ ${produto.preco}</h3>
+                                </div>
+                                <p>
+                                    <input type="button" value="Finalizar Compra" class="btn-formulario" id="btnFinalizarCompra${index}">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            `;
+    
+            container.appendChild(formDiv);
+    
+            // Configuração Pix: checkbox
+            const pixCheckbox = document.getElementById(`pixRadio${index}`);
+            const chavePixContainer = document.getElementById(`chavePixContainer${index}`);
+            pixCheckbox.addEventListener('change', () => {
+                chavePixContainer.style.display = pixCheckbox.checked ? 'block' : 'none';
+            });
+    
+            // Referências para abrir e fechar o painel de endereço
+            const btnCompreAgora = document.getElementById(`btnCompreAgora${index}`);
+            const painelEndereco = document.getElementById(`painelEndereco${index}`);
+            const btnFecharPainel = document.getElementById(`btnFecharPainel${index}`);
+            btnCompreAgora.addEventListener('click', () => {
+                painelEndereco.style.display = 'flex';
+                document.body.classList.add('painel-ativo');
+            });
+            btnFecharPainel.addEventListener('click', () => {
+                painelEndereco.style.display = 'none';
+                document.body.classList.remove('painel-ativo');
+            });
         });
     };
-
+    
     renderProdutos(produtos);
-
+    
+    // Lógica de busca
     inputBusca.addEventListener("input", () => {
         const termoBusca = inputBusca.value.trim().toLowerCase();
         const produtosFiltrados = produtos.filter(produto =>
@@ -173,108 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
         renderProdutos(produtosFiltrados);
     });
     
-
-    // Gerar os 30 formulários com IDs diferentes
-    for (let i = 0; i < 30; i++) {
-        const formDiv = document.createElement("div");
-
-        formDiv.innerHTML = `
-            <form id="painelEndereco${i}" style="display: none;">
-                <div class="conteiner-formulario">
-                    <div class="titulo-formulario-border">
-                        <div class="btn-voltar-e-titulo-formulario">
-                            <button type="button" id="btnFecharPainel${i}" class="caixa-btn-voltar-formulario">
-                                <img src="src/image/icons-navegações/img-voltar.png" alt="botão voltar" class="img-btn-voltar-formulario">
-                            </button>
-                            <h1 class="titulo-formulario">Preencha seu endereço:</h1>
-                        </div>
-                        <div class="inputs-do-formulario">
-                            <p class="conteiner-inputs">
-                                <input type="text" name="nomecompleto" id="nomecompleto${i}" placeholder="Nome Completo" class="caixa-de-inputs">
-                            </p>
-                            <p class="conteiner-inputs">
-                                <input type="number" name="telefone" id="telefone${i}" placeholder="Telefone" class="caixa-de-inputs">
-                            </p>
-                            <p class="conteiner-inputs">
-                                <input type="text" name="cidade" id="cidade${i}" placeholder="Cidade" class="caixa-de-inputs">
-                            </p>
-                            <p class="conteiner-inputs">
-                                <input type="text" name="bairro" id="bairro${i}" placeholder="Bairro" class="caixa-de-inputs">
-                            </p>
-                            <div class="display-rua-numero-da-casa">
-                                <p class="conteiner-inputs">
-                                    <input type="text" name="rua" id="rua${i}" placeholder="Rua" class="caixa-de-inputs-rua">
-                                </p>
-                                <p class="conteiner-inputs">
-                                    <input type="number" name="numerocasa" id="numerocasa${i}" placeholder="Número" class="caixa-de-inputs-numero-casa">
-                                </p>
-                            </div>
-                            <p class="conteiner-inputs">
-                                <input type="text" name="complemento" id="complemento${i}" placeholder="Complemento" class="caixa-de-inputs">
-                            </p>
-                            <p>
-                                <div class="checkbox-formulario">
-                                    <img src="src/image/img-forma-pagamento/pix-logo.png" alt="pix logo" class="pix-img">
-                                    <h3 class="pix-titulo">Pix</h3>
-                                    <input type="checkbox" name="formaPagamento" class="pix-checkbox" id="pixRadio${i}">
-                                </div>
-                            </p>
-                            <div id="chavePixContainer${i}" style="display: none;">
-                                <div class="chave-pix-formulario">
-                                    <h3>Chave Pix: 58b785b2-5a18-467a-af52-ad20ed81a22a</h3>
-                                </div>
-                            </div>
-                            <div class="valor-total-painel-endereço">
-                                <h3>Valor total: R$ ${precoProdutos[i]}</h3>
-                            </div>
-                            <p>
-                                <input type="button" value="Finalizar Compra" class="btn-formulario" id="btnFinalizarCompra${i}">
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            
-            <div class="conteiner">
-                <img src="${imagensProdutos[i]}" class="img-produtos" alt="Produto ${i + 1}">
-                <div class="text-conteiner">
-                    <div class="area-favorito-e-compra">
-                        <h3 class="titulo-tenis-air-force">${titulosProdutos[i]}</h3>
-                        <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho">
-                    </div>
-                    <p class="paragrafo-tenis-air-force">${paragrafosProdutos[i]}</p>
-                    <div class="area-favorito-e-compra">
-                        <h3 class="preço">R$ ${precoProdutos[i]}</h3>
-                        <button class="btn-de-comprar" id="btnCompreAgora${i}">Compre Agora</button>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        
-
-        container.appendChild(formDiv);
-
-        // Configuração Pix: checkbox
-        const pixCheckbox = document.getElementById(`pixRadio${i}`);
-        const chavePixContainer = document.getElementById(`chavePixContainer${i}`);
-        pixCheckbox.addEventListener('change', () => {
-            chavePixContainer.style.display = pixCheckbox.checked ? 'block' : 'none';
-        });
-
-        // Referências para abrir e fechar o painel de endereço
-        const btnCompreAgora = document.getElementById(`btnCompreAgora${i}`);
-        const painelEndereco = document.getElementById(`painelEndereco${i}`);
-        const btnFecharPainel = document.getElementById(`btnFecharPainel${i}`);
-        btnCompreAgora.addEventListener('click', () => {
-            painelEndereco.style.display = 'flex';
-            document.body.classList.add('painel-ativo');
-        });
-        btnFecharPainel.addEventListener('click', () => {
-            painelEndereco.style.display = 'none';
-            document.body.classList.remove('painel-ativo');
-        });
-    }
 
     // Carrossel
     let currentIndex = 0;
