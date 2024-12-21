@@ -37,13 +37,21 @@ document.addEventListener("DOMContentLoaded", function () {
         // Adicione mais imagens conforme necessário
     ];
 
+    const titulosProdutos = [
+        "bike | moderna",
+    ]
+
+    const paragrafosProdutos = [
+        "para usos de exercicios fisicos",
+    ]
+
     // Gerar os 30 formulários com IDs diferentes
     for (let i = 1; i <= 30; i++) {
         const formDiv = document.createElement("div");
 
         // Se o número de imagens for menor que 30, as imagens vão se repetir
         const imagemProduto = imagensProdutos[(i - 1) % imagensProdutos.length];
-
+        
         formDiv.innerHTML = `
             <form id="painelEndereco${i}" style="display: none;">
                 <div class="conteiner-formulario">
@@ -105,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${imagemProduto}" class="img-produtos" alt="Produto ${i}">
                 <div class="text-conteiner">
                     <div class="area-favorito-e-compra">
-                        <h3 class="titulo-tenis-air-force">Produto ${i}</h3>
+                        <h3 class="titulo-tenis-air-force">${titulosProdutos}</h3>
                         <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho">
                     </div>
                     <p class="paragrafo-tenis-air-force">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
