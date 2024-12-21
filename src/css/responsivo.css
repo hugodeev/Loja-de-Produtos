@@ -186,7 +186,10 @@ header{
     font-size: 15.5px;
     gap: 25px;
     margin-top: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;  
+}
+
+.li-menu{
     font-family:Verdana, Geneva, Tahoma, sans-serif ;  
 }
 
@@ -281,7 +284,7 @@ header{
 
 .btn-de-comprar{
     color: rgb(239, 239, 239);
-    background-color: #0f9b08;
+    background: rgb(0, 26, 255);
     width: 100px;
     height: 40px;
     font-size: 12px;
@@ -296,7 +299,11 @@ header{
 }
 
 .btn-de-comprar:focus{
-    background-color: #bdbdbd;
+    background: rgb(0, 20, 200);
+}
+
+.btn-de-comprar:hover{
+    background: rgb(3, 20, 175);
 }
 
 /* conteineir de endereço */

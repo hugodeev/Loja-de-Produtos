@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("container");
+    const inputBusca = document.getElementById("input-de-buscar");
 
     // Definindo um array com as imagens dos produtos
     const imagensProdutos = [
@@ -134,7 +135,46 @@ document.addEventListener("DOMContentLoaded", function () {
         "89,90"
     ];
 
-    // Gerar os 20 formulários com IDs diferentes
+    const produtos = titulosProdutos.map((titulo, index) => ({
+        titulo,
+        imagem: imagensProdutos[index],
+        descricao: paragrafosProdutos[index],
+        preco: precoProdutos[index],
+    }));
+
+    const renderProdutos = (produtosFiltrados) => {
+        container.innerHTML = ""; // Limpa os produtos existentes
+        produtosFiltrados.forEach(produto => {
+            const divProduto = document.createElement("div");
+            divProduto.classList.add("conteiner");
+
+            divProduto.innerHTML = `
+                <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
+                <div class="text-conteiner">
+                    <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
+                    <p>${produto.descricao}</p>
+                    <h3 class="preço">R$ ${produto.preco}</h3>
+                    <button class="btn-de-comprar">Compre Agora</button>
+                </div>
+            `;
+
+            container.appendChild(divProduto);
+        });
+    };
+
+    renderProdutos(produtos);
+
+    inputBusca.addEventListener("input", () => {
+        const termoBusca = inputBusca.value.trim().toLowerCase();
+        const produtosFiltrados = produtos.filter(produto =>
+            produto.titulo.toLowerCase().includes(termoBusca) ||
+            produto.descricao.toLowerCase().includes(termoBusca)
+        );
+        renderProdutos(produtosFiltrados);
+    });
+    
+
+    // Gerar os 30 formulários com IDs diferentes
     for (let i = 0; i < 30; i++) {
         const formDiv = document.createElement("div");
 
@@ -211,6 +251,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
+        
+
         container.appendChild(formDiv);
 
         // Configuração Pix: checkbox
@@ -285,3 +327,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
