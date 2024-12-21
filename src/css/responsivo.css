@@ -186,6 +186,8 @@ header{
     font-size: 15.5px;
     gap: 25px;
     margin-top: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;  
 }
 
 /* main caixa de produtos */
@@ -223,7 +225,7 @@ header{
 
 .conteiner{
     width: 283px;
-    height: 420px;
+    height: 400px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 5px;
@@ -299,7 +301,7 @@ header{
 
 /* conteineir de endereço */
 
-#painelEndereco1,  #painelEndereco2,  #painelEndereco3, #painelEndereco4,  #painelEndereco5,  #painelEndereco6, #painelEndereco7,  #painelEndereco8,  #painelEndereco9, #painelEndereco10, #painelEndereco11, #painelEndereco12, #painelEndereco13, #painelEndereco14, #painelEndereco15, #painelEndereco16, #painelEndereco17, #painelEndereco18, #painelEndereco19, #painelEndereco20, #painelEndereco21,#painelEndereco22, #painelEndereco23, #painelEndereco24, #painelEndereco25, #painelEndereco26, #painelEndereco27, #painelEndereco28, #painelEndereco29, #painelEndereco30 {
+#painelEndereco0,  #painelEndereco1,  #painelEndereco2,  #painelEndereco3, #painelEndereco4,  #painelEndereco5,  #painelEndereco6, #painelEndereco7,  #painelEndereco8,  #painelEndereco9, #painelEndereco10, #painelEndereco11, #painelEndereco12, #painelEndereco13, #painelEndereco14, #painelEndereco15, #painelEndereco16, #painelEndereco17, #painelEndereco18, #painelEndereco19, #painelEndereco20, #painelEndereco21,#painelEndereco22, #painelEndereco23, #painelEndereco24, #painelEndereco25, #painelEndereco26, #painelEndereco27, #painelEndereco28, #painelEndereco29, #painelEndereco30 {
     display: none; 
     position: fixed; 
     top: 50%;
@@ -459,13 +461,13 @@ header{
 
 .btn-formulario:hover{
     cursor: pointer;
-    background-color: #62c05d;
+    background-color: #7fa97d;
 }
 
 .valor-total-painel-endereço{
     color: #2c5275;
     font-size: 11px;
-    margin-left: 130px;
+    margin-left: 150px;
     margin-top: 20px;
     font-family:Verdana, Geneva, Tahoma, sans-serif ;
 }
