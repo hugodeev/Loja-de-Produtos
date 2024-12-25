@@ -146,7 +146,7 @@ body{
     color: #c8c8c8;
     font-size: 23px;
     margin-left: 15px;
-    margin-top: 9px;
+    margin-top: 11px;
 }
 
 .menu-cabeçalho-estação-do-ano{
@@ -164,11 +164,11 @@ body{
     width: 100%;
     height: 60px;
     display: flex;
-    gap: 60px;
+    gap: 0px;
     align-items: center;
     position: fixed;
     bottom: 0;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .icons-menu{  

@@ -550,7 +550,8 @@ header{
     width: 100%;
     height: 60px;
     display: flex;
-    gap: 60px;
+    gap: 0px;
+    justify-content: space-around;
 }
 
 .icons-menu{  
