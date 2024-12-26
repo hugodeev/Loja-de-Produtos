@@ -52,62 +52,9 @@
         </header>
 
         <main>
+
+            <div id="carrinho-container" style="margin-top: 100px;"></div>
         
-            <div class="conteiner-carrinho">
-
-                <div class="sub-conteiner-carrinho">
-
-                    <img src="src/image/imgs-produtos/bike.jpg" alt="produtos bikes" class="img-produtos">
-                    <div>
-                        <h3 class="titulo-do-produto">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia cum, dolorum provident atque ipsam incidunt quibusdam aperiam reprehenderit autem natus corrupti cumque magni neque deserunt temporibus earum facere quas! </h3>
-                        
-                        <input type="button" value="Remover" class="btn-remover">
-                    </div> 
-                    
-                </div>                       
-            </div>
-
-            <div class="conteiner-carrinho">
-
-                <div class="sub-conteiner-carrinho">
-
-                    <img src="src/image/imgs-produtos/bike.jpg" alt="produtos bikes" class="img-produtos">
-                    <div>
-                        <h3 class="titulo-do-produto">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia cum, dolorum provident atque ipsam incidunt quibusdam aperiam reprehenderit autem natus corrupti cumque magni neque deserunt temporibus earum facere quas! </h3>
-                        
-                        <input type="button" value="Remover" class="btn-remover">
-                    </div> 
-                    
-                </div>                       
-            </div>
-
-            <div class="conteiner-carrinho">
-
-                <div class="sub-conteiner-carrinho">
-
-                    <img src="src/image/imgs-produtos/bike.jpg" alt="produtos bikes" class="img-produtos">
-                    <div>
-                        <h3 class="titulo-do-produto">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia cum, dolorum provident atque ipsam incidunt quibusdam aperiam reprehenderit autem natus corrupti cumque magni neque deserunt temporibus earum facere quas! </h3>
-                        
-                        <input type="button" value="Remover" class="btn-remover">
-                    </div> 
-                    
-                </div>                       
-            </div>
-
-            <div class="conteiner-carrinho">
-
-                <div class="sub-conteiner-carrinho">
-
-                    <img src="src/image/imgs-produtos/bike.jpg" alt="produtos bikes" class="img-produtos">
-                    <div>
-                        <h3 class="titulo-do-produto">Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia cum, dolorum provident atque ipsam incidunt quibusdam aperiam reprehenderit autem natus corrupti cumque magni neque deserunt temporibus earum facere quas! </h3>
-                        
-                        <input type="button" value="Remover" class="btn-remover">
-                    </div> 
-                    
-                </div>                       
-            </div>
 
         </main>
 
@@ -139,5 +86,54 @@
     </div>
 <!----------------->
     
+
+<script>
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+const container = document.getElementById('carrinho-container');
+
+// Função para exibir os itens do carrinho
+function exibirCarrinho() {
+    // Limpa o container antes de renderizar os itens
+    container.innerHTML = '';
+
+    // Verifica se há itens no carrinho
+    if (carrinho.length > 0) {
+        carrinho.forEach((item, index) => {
+            // Cria o HTML do item do carrinho
+            const itemHTML = `
+                <div class="conteiner-carrinho">
+                    <div class="sub-conteiner-carrinho">
+                        <img src="${item.imagem}" alt="${item.titulo}" class="img-produtos">
+                        <div>
+                            <h3 class="titulo-do-produto">${item.titulo}</h3>
+                            <p class="descricao-do-produto">${item.descricao}</p>
+                            <input type="button" value="Remover" class="btn-remover" data-index="${index}">
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += itemHTML;
+        });
+
+        // Adiciona evento ao botão "Remover" após criar os elementos
+        document.querySelectorAll('.btn-remover').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'));
+                carrinho.splice(index, 1); // Remove o item do array
+                localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o localStorage
+                exibirCarrinho(); // Atualiza o DOM
+            });
+        });
+    } else {
+        // Exibe mensagem quando o carrinho está vazio
+        container.innerHTML = '<p class="alert-carrinho-vazio">O carrinho está vazio.</p>';
+    }
+}
+
+// Exibe os itens ao carregar a página
+exibirCarrinho();
+
+</script>
+
 </body>
 </html>

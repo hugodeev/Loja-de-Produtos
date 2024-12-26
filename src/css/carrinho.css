@@ -85,6 +85,8 @@ header{
     border-radius: 1px;
 }
 
+
+
 }
 
 /*style responsivo tablets*/
@@ -190,10 +192,10 @@ body{
 
 .conteiner-carrinho{
     background-color: #0860ca;
-    width: 365px;
+    width: 380px;
     height: 130px;
     margin-left: 12px;
-    margin-top: 25px;
+    margin-top: 24px;
     border-radius: 15px 0px 15px 15px;
     border: 2px solid #c0d9f8;
 }
@@ -203,11 +205,16 @@ body{
 }
 
 .titulo-do-produto{
-    font-size: 12px;
     text-align: justify;
-    margin-top: 10px;
-    font-size: 10px;
+    margin-top: 15px;
+    font-size: 15px;
     margin-right: 10px;
+    margin-left: 10px ;
+}
+
+.descricao-do-produto{
+    font-size: 13px;
+    margin: 10px;
 }
 
 .img-produtos{
@@ -235,6 +242,16 @@ body{
 .btn-remover:hover{
     background: rgb(139, 0, 0);
 }
+
+.alert-carrinho-vazio{
+    color: #0860ca;
+    text-align: center;
+    margin-top: 70%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 21px;
+}
+
+
 
 
 

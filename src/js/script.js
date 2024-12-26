@@ -140,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         imagem: imagensProdutos[index],
         descricao: paragrafosProdutos[index],
         preco: precoProdutos[index],
+        id: index // Adicionando um id único para cada produto
     }));
     
     const renderProdutos = (produtosFiltrados) => {
@@ -151,19 +152,72 @@ document.addEventListener("DOMContentLoaded", function () {
     
             // Renderiza o produto
             divProduto.innerHTML = `
-                <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
-                <div class="text-conteiner">
-                   <div class="area-favorito-e-compra">
-                       <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
-                       <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho">
-                   </div>
+        
+                   <div class="produto">
+                    <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
+                    <div class="text-conteiner">
+                        <div class="area-favorito-e-compra">
+                            <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
+                            <img src="src/image/icons-menu/carrinho.png" 
+                                 class="btn-carrinho" 
+                                 alt="Carrinho" 
+                                 data-id="${produto.id}" 
+                                 data-titulo="${produto.titulo}" 
+                                 data-descricao="${produto.descricao}" 
+                                 data-imagem="${produto.imagem}"
+                                 data-preco="${produto.preco}">
+                        </div>
                         <p class="paragrafo-tenis-air-force">${produto.descricao}</p>
                         <div class="area-favorito-e-compra">
                             <h3 class="preço">R$ ${produto.preco}</h3>
-                            <button class="btn-de-comprar" id="btnCompreAgora${index}">Compre Agora</button>
+                            <button class="btn-de-comprar" id="btnCompreAgora${produto.id}">Compre Agora</button>
+                        </div>
                     </div>
                 </div>
+
+ 
             `;
+
+            document.querySelectorAll('.btn-carrinho').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Obtem os dados do produto
+                    const produto = {
+                        id: this.getAttribute('data-id'),
+                        titulo: this.getAttribute('data-titulo'),
+                        descricao: this.getAttribute('data-descricao'),
+                        imagem: this.getAttribute('data-imagem'),
+                        preco: this.getAttribute('data-preco')
+                    };
+            
+                    // Recupera o carrinho do localStorage ou cria um novo carrinho vazio
+                    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            
+                    // Verifica se o produto já está no carrinho
+                    const produtoExistente = carrinho.some(item => item.id === produto.id);
+            
+                    if (produtoExistente) {
+                        // Se o produto já existe no carrinho, exibe uma mensagem
+                        const msgErro = document.getElementById('msg-erro');
+                        msgErro.textContent = "Este produto já está no carrinho.";
+                        msgErro.style.display = 'block'; // Torna a mensagem visível
+            
+                        // Opcionalmente, você pode esconder a mensagem após 3 segundos
+                        setTimeout(() => {
+                            msgErro.style.display = 'none';
+                        }, 3000);
+                    } else {
+                        // Caso contrário, adiciona o produto ao carrinho
+                        carrinho.push(produto);
+            
+                        // Atualiza o carrinho no localStorage
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            
+                        // Redireciona para a página do carrinho
+                        window.location.href = 'carrinho.html';
+                    }
+                });
+            });
+            
     
             container.appendChild(divProduto);
     
