@@ -190,8 +190,8 @@ body{
 
 .conteiner-carrinho{
     background-color: #0860ca;
-    width: 380px;
-    height: 120px;
+    width: 365px;
+    height: 130px;
     margin-left: 12px;
     margin-top: 25px;
     border-radius: 15px 0px 15px 15px;
@@ -216,14 +216,14 @@ body{
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     padding: 2px;
-    margin: 8px;
+    margin: 11px;
 }
 
 .btn-remover{
     color: rgb(239, 239, 239);
     background: rgb(177, 0, 0);
     border-radius: 10px;
-    width: 230px;
+    width: 200px;
     height: 23px;
     margin-left: 10px;
     margin-top: 10px;
