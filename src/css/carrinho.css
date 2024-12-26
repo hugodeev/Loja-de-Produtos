@@ -126,9 +126,7 @@ body{
 /* topo Heard*/
 
 .layout-responsivo{
-    background-color:#ebe6e6;
-    width: 890px;
-    margin: auto;
+    background-color:#ebe6e6; 
 }
 
 .menu-superior{
@@ -184,7 +182,7 @@ body{
 
 .titulo-produtos-no-carrinho{
     color: #0860ca;
-    font-size: 25px; 
+    font-size: 27px; 
     margin-top: 70px;
     margin-left: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -208,7 +206,7 @@ body{
     font-size: 12px;
     text-align: justify;
     margin-top: 10px;
-    font-size: 9px;
+    font-size: 10px;
     margin-right: 10px;
 }
 
