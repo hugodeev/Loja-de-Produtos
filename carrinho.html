@@ -108,7 +108,7 @@ function exibirCarrinho() {
                             <h3 class="titulo-do-produto">${item.titulo}</h3>
                             <p class="descricao-do-produto">${item.descricao}</p>
                             <input type="button" value="Compre Agora" class="btn-comprar" data-index="${index}">
-                            <input type="button" value="Remover" class="btn-remover" data-index="${index}">
+                            <input type="button" value="Remover" class="btn-remover" id="btn-comprar" data-index="${index}">
                         </div>
                     </div>
                 </div>
@@ -133,6 +133,7 @@ function exibirCarrinho() {
 
 // Exibe os itens ao carregar a página
 exibirCarrinho();
+
 
 </script>
 
