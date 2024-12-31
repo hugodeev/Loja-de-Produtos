@@ -234,6 +234,13 @@ header{
     margin-top: 50px;
 }
 
+.img-favorito-produto{
+    width: 30px;
+    position: absolute;
+    margin-left: 248px;
+    margin-top: 5px;
+}
+
 .img-produtos{
     width: 283px;
     height: 225px;
@@ -586,6 +593,18 @@ header{
 
 .colum-para-telas-menores-final-do-site{
     margin-top: 80px;
+}
+
+
+.icone-favorito {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.icone-favorito:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
 }
 
 

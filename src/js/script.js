@@ -1,3 +1,9 @@
+
+
+
+    
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("container");
     const inputBusca = document.getElementById("input-de-buscar");
@@ -152,31 +158,254 @@ document.addEventListener("DOMContentLoaded", function () {
     
             // Renderiza o produto
             divProduto.innerHTML = `
-        
-                   <div class="produto">
-                    <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
-                    <div class="text-conteiner">
-                        <div class="area-favorito-e-compra">
-                            <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
-                            <img src="src/image/icons-menu/carrinho.png" 
-                                 class="btn-carrinho" 
-                                 alt="Carrinho" 
-                                 data-id="${produto.id}" 
-                                 data-titulo="${produto.titulo}" 
-                                 data-descricao="${produto.descricao}" 
-                                 data-imagem="${produto.imagem}"
-                                 data-preco="${produto.preco}">
-                        </div>
-                        <p class="paragrafo-tenis-air-force">${produto.descricao}</p>
-                        <div class="area-favorito-e-compra">
-                            <h3 class="preço">R$ ${produto.preco}</h3>
-                            <button class="btn-de-comprar" id="btnCompreAgora${produto.id}">Compre Agora</button>
-                        </div>
-                    </div>
-                </div>
+<div class="produto">
+    <img src="src/image/icons-menu/favorito.png" class="img-favorito-produto" alt="Favorito" data-id="${produto.id}">
+    <img src="${produto.imagem}" class="img-produtos" alt="${produto.titulo}">
+    <div class="text-conteiner">
+        <div class="area-favorito-e-compra">
+            <h3 class="titulo-tenis-air-force">${produto.titulo}</h3>
+            <img src="src/image/icons-menu/carrinho.png" class="btn-carrinho" alt="Carrinho" data-id="${produto.id}" 
+                 data-titulo="${produto.titulo}" data-descricao="${produto.descricao}" data-imagem="${produto.imagem}" 
+                 data-preco="${produto.preco}">
+        </div>
+        <p class="paragrafo-tenis-air-force">${produto.descricao}</p>
+        <div class="area-favorito-e-compra">
+            <h3 class="preço">R$ ${produto.preco}</h3>
+            <button class="btn-de-comprar" id="btnCompreAgora${produto.id}">Compre Agora</button>
+        </div>
+    </div>
+</div>
+
 
  
             `;
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // Carregar favoritos do localStorage
+                const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+                const produtos = document.querySelectorAll('.produto'); // Seleciona todos os produtos
+                const conteinerFavoritos = document.querySelector('.conteiner-favoritos');
+            
+                // Função para adicionar aos favoritos
+                function adicionarFavorito(produto) {
+                    favoritos.push(produto);
+                    localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva no localStorage
+                }
+            
+                // Função para atualizar a cor do botão de favorito
+                function mudarCorFavorito(button) {
+                    button.style.filter = 'invert(23%) sepia(96%) saturate(295%) hue-rotate(354deg) brightness(99%) contrast(99%)'; // Cor vermelha
+                    button.alt = "Favoritado"; // Altera o alt do ícone
+                }
+            
+                // Evento para favoritar o produto
+                produtos.forEach(produto => {
+                    produto.addEventListener('click', function (event) {
+                        if (event.target.classList.contains('img-favorito-produto')) {
+                            const produtoElemento = event.target.closest('.produto');
+                            const produtoId = produtoElemento.querySelector('.img-favorito-produto').getAttribute('data-id');
+                            const produtoImagem = produtoElemento.querySelector('.img-produtos').src;
+                            const produtoDescricao = produtoElemento.querySelector('.paragrafo-tenis-air-force').innerText;
+                            const produtoPreco = produtoElemento.querySelector('.preço').innerText;
+            
+                            // Verifica se o produto já está nos favoritos
+                            const jaFavoritado = favoritos.some(item => item.id === produtoId);
+            
+                            if (!jaFavoritado) {
+                                // Se não estiver, adiciona aos favoritos
+                                adicionarFavorito({
+                                    id: produtoId,
+                                    titulo: produtoElemento.querySelector('.titulo-tenis-air-force').innerText,
+                                    imagem: produtoImagem,
+                                    descricao: produtoDescricao,
+                                    preco: produtoPreco
+                                });
+            
+                                // Altera a cor do botão de favorito para vermelho
+                                mudarCorFavorito(event.target);
+                            } else {
+                                // Se já estiver, não faz nada ou você pode remover
+                                alert('Este produto já está nos favoritos!');
+                            }
+                        }
+                    });
+                });
+            
+                // Função para renderizar produtos no DOM de favoritos
+                function renderizarFavoritos() {
+                    conteinerFavoritos.innerHTML = ''; // Limpa o contêiner antes de renderizar novamente
+            
+                    if (favoritos.length === 0) {
+                        conteinerFavoritos.innerHTML = '<p>Você não tem produtos favoritos.</p>';
+                        return;
+                    }
+            
+                    favoritos.forEach((item, index) => {
+                        const subConteiner = document.createElement('div');
+                        subConteiner.className = 'sub-conteiner-produto';
+            
+                        subConteiner.innerHTML = `
+                            <img src="${item.imagem}" alt="${item.titulo}" class="img-produtos">
+                            <div>
+                                <h3 class="titulo-do-produto">${item.titulo}</h3>
+                                <p class="descricao-do-produto">${item.descricao}</p>
+                                <input type="button" value="Remover" class="btn-remover" data-index="${index}">
+                            </div>
+                        `;
+            
+                        conteinerFavoritos.appendChild(subConteiner);
+                    });
+                }
+            
+                // Renderiza os favoritos ao carregar a página de favoritos
+                if (conteinerFavoritos) {
+                    renderizarFavoritos();
+                }
+            
+                // Lida com a remoção de favoritos
+                conteinerFavoritos.addEventListener('click', function (event) {
+                    if (event.target.classList.contains('btn-remover')) {
+                        const index = event.target.getAttribute('data-index');
+                        favoritos.splice(index, 1); // Remove o item dos favoritos
+                        localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Atualiza o localStorage
+                        renderizarFavoritos(); // Re-renderiza os favoritos após a remoção
+                    }
+                });
+            });
+            
+            
+            
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+                const produtosContainer = document.querySelector('.produto');
+            
+                // Função para adicionar aos favoritos
+                function adicionarFavorito(produto) {
+                    favoritos.push(produto);
+                    localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva no localStorage
+                }
+            
+                // Função para atualizar a cor do botão de favorito
+                function mudarCorFavorito(button) {
+                    button.style.filter = 'invert(23%) sepia(96%) saturate(295%) hue-rotate(354deg) brightness(99%) contrast(99%)'; // Cor vermelha
+                    button.alt = "Favoritado"; // Altera o alt do ícone
+                }
+            
+                // Evento para favoritar o produto
+                produtosContainer.addEventListener('click', function (event) {
+                    if (event.target.classList.contains('img-favorito-produto')) {
+                        const produtoElemento = event.target.closest('.produto');
+                        const produtoId = produtoElemento.querySelector('.titulo-tenis-air-force').innerText;
+                        const produtoImagem = produtoElemento.querySelector('.img-produtos').src;
+                        const produtoDescricao = produtoElemento.querySelector('.paragrafo-tenis-air-force').innerText;
+                        const produtoPreco = produtoElemento.querySelector('.preço').innerText;
+            
+                        // Verifica se o produto já está nos favoritos
+                        const jaFavoritado = favoritos.some(item => item.titulo === produtoId);
+            
+                        if (!jaFavoritado) {
+                            // Se não estiver, adiciona aos favoritos
+                            adicionarFavorito({
+                                id: produtoId,
+                                titulo: produtoId,
+                                imagem: produtoImagem,
+                                descricao: produtoDescricao,
+                                preco: produtoPreco
+                            });
+            
+                            // Altera a cor do botão de favorito para vermelho
+                            mudarCorFavorito(event.target);
+            
+                            // Redireciona o usuário para outro site
+                            window.location.href = 'https://hugodeev.github.io/Loja-de-Produtos/favorito.htmlm'; // Coloque o URL de redirecionamento desejado
+                        }
+                    }
+                });
+            });
+            
+
+            document.addEventListener('DOMContentLoaded', function () {
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const conteinerProdutos = document.querySelector('.conteiner-produtos');
+
+    // Função para adicionar o produto aos favoritos e mudar a cor do botão
+    function adicionarFavorito(produto) {
+        favoritos.push(produto);
+        localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva no localStorage
+    }
+
+    // Adiciona evento ao botão de favoritar
+    conteinerProdutos.addEventListener('click', function (event) {
+        if (event.target.classList.contains('btn-favoritar')) {
+            const produtoElemento = event.target.closest('.produto');
+            const produtoId = produtoElemento.querySelector('.titulo-produto').innerText;
+            const produtoImagem = produtoElemento.querySelector('img').src;
+            const produtoDescricao = produtoElemento.querySelector('.descricao-produto') ? produtoElemento.querySelector('.descricao-produto').innerText : '';
+
+            // Verifica se o produto já está nos favoritos
+            const jaFavoritado = favoritos.some(item => item.titulo === produtoId);
+
+            if (!jaFavoritado) {
+                // Se não estiver, adiciona aos favoritos
+                adicionarFavorito({
+                    titulo: produtoId,
+                    imagem: produtoImagem,
+                    descricao: produtoDescricao
+                });
+
+                // Altera a cor do botão para vermelho
+                event.target.style.backgroundColor = 'red';
+                event.target.innerText = 'Favoritado';
+
+                // Redireciona para outro site após o clique
+                window.location.href = 'https://www.outrosite.com'; // Coloque o URL do site para o qual deseja redirecionar
+            }
+        }
+    });
+});
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const botoesFavorito = document.querySelectorAll('.icone-favorito'); // Selecione os ícones de favorito
+            
+                // Recupera os favoritos do localStorage
+                const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+            
+                // Atualiza a aparência inicial dos ícones
+                botoesFavorito.forEach(botao => {
+                    const produtoId = botao.getAttribute('data-id');
+                    if (favoritos.some(item => item.id === produtoId)) {
+                        botao.src = 'icone-favorito-vermelho.png'; // Caminho da imagem de favorito ativo
+                    }
+            
+                    // Adiciona evento de clique
+                    botao.addEventListener('click', function () {
+                        const produto = {
+                            id: produtoId,
+                            imagem: botao.closest('.produto').querySelector('.img-produto').src,
+                            titulo: botao.closest('.produto').querySelector('.titulo-do-produto').textContent,
+                            descricao: botao.closest('.produto').querySelector('.descricao-do-produto').textContent,
+                        };
+            
+                        // Verifica se o item já está nos favoritos
+                        const index = favoritos.findIndex(item => item.id === produtoId);
+                        if (index === -1) {
+                            // Adiciona o produto aos favoritos
+                            favoritos.push(produto);
+                            botao.src = 'icone-favorito-vermelho.png'; // Ícone vermelho para favoritado
+                        } else {
+                            // Remove o produto dos favoritos
+                            favoritos.splice(index, 1);
+                            botao.src = 'icone-favorito-cinza.png'; // Ícone cinza para não favoritado
+                        }
+            
+                        // Atualiza o localStorage
+                        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                    });
+                });
+            });
+            
 
             document.querySelectorAll('.btn-carrinho').forEach(btn => {
                 btn.addEventListener('click', function () {
@@ -371,3 +600,95 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+        document.addEventListener('DOMContentLoaded', function () {
+    // Carregar favoritos do localStorage
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    const produtos = document.querySelectorAll('.produto'); // Seleciona todos os produtos
+    const conteinerFavoritos = document.querySelector('.conteiner-favoritos');
+
+    // Função para adicionar aos favoritos
+    function adicionarFavorito(produto) {
+        favoritos.push(produto);
+        localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Salva no localStorage
+    }
+
+    // Função para atualizar a cor do botão de favorito
+    function mudarCorFavorito(button) {
+        button.style.filter = 'invert(23%) sepia(96%) saturate(295%) hue-rotate(354deg) brightness(99%) contrast(99%)' // Cor vermelha
+        button.alt = "Favoritado"; // Altera o alt do ícone
+    }
+
+    // Evento para favoritar o produto
+    produtos.forEach(produto => {
+        produto.addEventListener('click', function (event) {
+            if (event.target.classList.contains('img-favorito-produto')) {
+                const produtoElemento = event.target.closest('.produto');
+                const produtoId = produtoElemento.querySelector('.img-favorito-produto').getAttribute('data-id');
+                const produtoImagem = produtoElemento.querySelector('.img-produtos').src;
+                const produtoDescricao = produtoElemento.querySelector('.paragrafo-tenis-air-force').innerText;
+                const produtoPreco = produtoElemento.querySelector('.preço').innerText;
+
+                // Verifica se o produto já está nos favoritos
+                const jaFavoritado = favoritos.some(item => item.id === produtoId);
+
+                if (!jaFavoritado) {
+                    // Se não estiver, adiciona aos favoritos
+                    adicionarFavorito({
+                        id: produtoId,
+                        titulo: produtoElemento.querySelector('.titulo-tenis-air-force').innerText,
+                        imagem: produtoImagem,
+                        descricao: produtoDescricao,
+                        preco: produtoPreco
+                    });
+
+                    // Altera a cor do botão de favorito para vermelho
+                    mudarCorFavorito(event.target);
+                } else {
+                    // Se já estiver, não faz nada ou você pode remover
+                    alert('Este produto já está nos favoritos!');
+                }
+            }
+        ;
+    
+
+    // Função para renderizar produtos no DOM de favoritos
+    function renderizarFavoritos() {
+        conteinerFavoritos.innerHTML = ''; // Limpa o contêiner antes de renderizar novamente
+
+        if (favoritos.length === 0) {
+            conteinerFavoritos.innerHTML = '<p>Você não tem produtos favoritos.</p>';
+            return;
+        }
+
+        favoritos.forEach((item, index) => {
+            const subConteiner = document.createElement('div');
+            subConteiner.className = 'sub-conteiner-produto';
+
+            subConteiner.innerHTML = `
+                <img src="${item.imagem}" alt="${item.titulo}" class="img-produtos">
+                <div>
+                    <h3 class="titulo-do-produto">${item.titulo}</h3>
+                    <p class="descricao-do-produto">${item.descricao}</p>
+                    <input type="button" value="Remover" class="btn-remover" data-index="${index}">
+                </div>
+            `;
+
+            conteinerFavoritos.appendChild(subConteiner);
+        });
+    }
+
+    // Renderiza os favoritos ao carregar a página de favoritos
+    if (conteinerFavoritos) {
+        renderizarFavoritos();
+    }
+
+    // Lida com a remoção de favoritos
+    conteinerFavoritos.addEventListener('click', function (event) {
+        if (event.target.classList.contains('btn-remover')) {
+            const index = event.target.getAttribute('data-index');
+            favoritos.splice(index, 1); // Remove o item dos favoritos
+            localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Atualiza o localStorage
+            renderizarFavoritos(); // Re-renderiza os favoritos após a remoção
+        }
+    })})})})

@@ -47,11 +47,15 @@
 
             </div>
 
+            <h1 class="titulo-produtos-favoritos">Produtos Favoritos:</h1>
+
         </header>
 
         <main>
-
-
+            <div class="conteiner-favoritos">
+                <!-- Os itens favoritos serão renderizados aqui -->
+            </div>
+            
 
 
         </main>
@@ -84,5 +88,55 @@
     </div>
 <!----------------->
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Carregar favoritos do localStorage
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    
+        const conteinerFavoritos = document.querySelector('.conteiner-favoritos');
+    
+        // Função para renderizar produtos no DOM
+        function renderizarFavoritos() {
+            conteinerFavoritos.innerHTML = ''; // Limpa o contêiner antes de renderizar novamente
+    
+            if (favoritos.length === 0) {
+                conteinerFavoritos.innerHTML = '<p class="alert-favoritos-vazio">Você não tem produtos favoritos.</p>';
+                return;
+            }
+    
+            favoritos.forEach((item, index) => {
+                const subConteiner = document.createElement('div');
+                subConteiner.className = 'sub-conteiner-produto';
+    
+                subConteiner.innerHTML = `
+
+                    <div class="conteiner-favorito-favorito">
+                    <div class="sub-conteiner-favorito">
+                    <img src="${item.imagem}" alt="${item.titulo}" class="img-produtos">
+                    <div>
+                        <h3 class="titulo-do-produto">${item.titulo}</h3>
+                        <p class="descricao-do-produto">${item.descricao}</p>
+                        <input type="button" value="Remover" class="btn-remover" data-index="${index}">
+                    </div>
+                `;
+    
+                conteinerFavoritos.appendChild(subConteiner);
+            });
+        }
+    
+        // Renderiza os favoritos ao carregar a página
+        renderizarFavoritos();
+    
+        // Lida com a remoção de favoritos
+        conteinerFavoritos.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-remover')) {
+                const index = event.target.getAttribute('data-index');
+                favoritos.splice(index, 1); // Remove o item dos favoritos
+                localStorage.setItem('favoritos', JSON.stringify(favoritos)); // Atualiza o localStorage
+                renderizarFavoritos(); // Re-renderiza os favoritos após a remoção
+            }
+        });
+    });
+    </script>
 </body>
 </html>

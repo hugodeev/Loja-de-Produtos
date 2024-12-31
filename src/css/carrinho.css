@@ -194,12 +194,10 @@ body{
     background-color: #0860ca;
     width: 365px;
     height: 130px;
-    margin-left: 12px;
     margin-top: 30px;
     border-radius: 15px 0px 15px 15px;
     border: 2px solid #c0d9f8;
-
-    
+    justify-self: center;
 }
 
 .sub-conteiner-carrinho{
